@@ -1,23 +1,14 @@
-class blackspawner {
+// let a = this.chooseCell(0);
+// var n = a[Math.floor(Math.random() * a.length)];
+
+let script1 = require("./script1")
+module.exports =  class blackspawner extends script1{
     constructor(x, y, id) {
-        this.x = x;
-        this.y = y;
-        this.id = id;
+        super(x,y,id)
         this.SpawnerTime = 0
-        this.getNewCoordinates();
+        
     }
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
+   
 
     chooseCell() {
         this.getNewCoordinates();
@@ -49,7 +40,9 @@ class blackspawner {
     move() {
         this.SpawnerTime++
         var emptyCells = this.chooseCell();
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+          
+        
 
         if (emptyCells.length>0) {
             var newX = newCell[0];

@@ -1,26 +1,14 @@
-class white {
+let script1 = require("./script1")
+module.exports =  class white extends script1{
     constructor(x, y, id,energy) {
-        this.x = x;
-        this.y = y;
-        this.id = id;
+        super(x,y,id)
         this.multyply= 0
         this.energy = energy;
-        this.getNewCoordinates();
+        
         this.end = 7;
         
     }
-    getNewCoordinates() {
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
+    
 
     chooseCell(character) {
         this.getNewCoordinates();
@@ -46,7 +34,8 @@ class white {
         if(this.multyply==2){
             this.multyply=0
             var emptyCells = this.chooseCell(3);
-            var newCell = random(emptyCells);
+            var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+          
 
             if (this.energy > 0 && newCell) {
                 var newX = newCell[0];
@@ -84,7 +73,8 @@ class white {
         timer++
         
         var emptyCells = this.chooseCell(3);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+          
 
         if (this.energy > 29 && newCell&&whiteArr.length<20) {
             var newX = newCell[0];

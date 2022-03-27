@@ -1,8 +1,7 @@
-class black {
+let script1 = require("./script1")
+module.exports = class black extends script1 {
     constructor(x, y, id,n,multiply) {
-        this.x = x;
-        this.y = y;
-        this.id = id;
+        super(x,y,id)
         this.multiply = multiply;
         this.namber = --n
         this.oneblack = true
@@ -30,7 +29,7 @@ class black {
             var y1 = this.directions[i][1];
             if (x1 >= 0 && x1 < matrix[0].length && y1 >= 0 && y1 < matrix.length) {
                 if(matrix[y1][x1]!=3){
-                    found.push(this.directions[i]);
+                    found.push(this.directions[i]); 
                 }
             }
         }
@@ -50,7 +49,7 @@ class black {
         }
         return found;
     }
-    mul() {
+    mull() {
         this.multiply--;
         if (this.multiply==10){
             this.white = true;       

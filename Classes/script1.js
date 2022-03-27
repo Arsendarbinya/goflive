@@ -1,4 +1,5 @@
-class script1 {
+let script1 = require("./script1")
+module.exports = class script1 {
     constructor(x, y, id) {
         this.x = x;
         this.y = y;
@@ -31,22 +32,47 @@ class script1 {
         }
         return found;
     }
-    mull(n) {
+    mull(n,n1) {
     
 
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var emptyCells = this.chooseCell(n1);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+          
 
         if(this.multiply >= n && newCell){
             var newX = newCell[0];
             var newY = newCell[1];
             
+            this.what(this.id,newX,newY)
             matrix[newY][newX] = this.id;
 
-            var newGrass = new Grass (newX,newY, this.id);
-            grassArr.push(newGrass);
+            
 
             
+        }
+    }
+    what(id,x,y){
+
+        if(id==1){
+            var newGrass = new Grass1 (x,y, this.id);
+            grassArr.push(newGrass);
+        }
+
+        if(id==2){
+            var newGrassEater = new GrassEater1(x, y, this.id)
+            grassEaterArr.push(newGrassEater);
+        }
+        if(id==3){
+            var newGrass = new Grass1 (newX,newY, this.id);
+            grassArr.push(newGrass);
+        }
+        if(id==4){
+            var newGrass = new Grass1 (newX,newY, this.id);
+            grassArr.push(newGrass);
+        }
+        if(id==5){
+            var newGrass = new Grass1 (newX,newY, this.id);
+            grassArr.push(newGrass);
         }
     }
 }
