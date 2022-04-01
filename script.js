@@ -31,6 +31,15 @@ function nkarel(matrix) {
 socket.on("send matrix", nkarel)
 
 
+function f0() {
+    socket.emit("f0")
+}
+function f1() {
+    socket.emit("f1")
+}
+function f2() {
+    socket.emit("f2")
+}
 
 
 

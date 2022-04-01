@@ -54,12 +54,12 @@ module.exports = class script1 {
     what(id,x,y){
 
         if(id==1){
-            var newGrass = new Grass1 (x,y, this.id);
+            var newGrass = new Grass1 (x,y, id);
             grassArr.push(newGrass);
         }
 
         if(id==2){
-            var newGrassEater = new GrassEater1(x, y, this.id)
+            var newGrassEater = new GrassEater1(x, y, id)
             grassEaterArr.push(newGrassEater);
         }
         if(id==3){

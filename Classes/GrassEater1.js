@@ -2,7 +2,7 @@ let script1 = require("./script1")
 module.exports =  class GrassEater1 extends script1{
     constructor(x, y, id) {
         super(x,y,id)
-        this.energy = 8;
+        this.energy = 2;
     
     
    
@@ -12,7 +12,7 @@ module.exports =  class GrassEater1 extends script1{
  
 
     move() {
-        var emptyCells = this.chooseCell(0);
+        var emptyCells = super.chooseCell(0);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
           
 
@@ -25,13 +25,15 @@ module.exports =  class GrassEater1 extends script1{
 
             this.x = newX;
             this.y = newY;
-
+            console.log(this.energy)
             this.energy--;
         }
-        this.die();
+
+            this.die();
+        
     }
     eat() {
-        var emptyCells = this.chooseCell(1);
+        var emptyCells = super.chooseCell(1);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
         ;
 
@@ -48,11 +50,13 @@ module.exports =  class GrassEater1 extends script1{
             for (var i in grassArr) {
                 if (grassArr[i].x == newX && grassArr[i].y == newY) {
                     grassArr.splice(i, 1);
+                    break
                 }
             }
             this.energy++;
-
-            this.mull();
+            if (this.energy >= 8){
+                this.mull(5,0);
+            }
         } else {
             this.move();
         }
