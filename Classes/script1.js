@@ -63,18 +63,16 @@ module.exports = class script1 {
             grassEaterArr.push(newGrassEater);
         }
         if(id==3){
-            var newGrass = new Grass1 (newX,newY, this.id);
-            grassArr.push(newGrass);
+            var New = new black(x, y, 3,6,11);
+            blackArr.push(New)
         }
         if(id==4){
-            var newGrass = new Grass1 (newX,newY, this.id);
-            grassArr.push(newGrass);
+            var New = new white(x, y, 4,30);
+            whiteArr.push(New)
         }
         if(id==5){
-            var newGrass = new Grass1 (newX,newY, this.id);
-            grassArr.push(newGrass);
+            var New = new blackspawner(x, y, 5);
+            spawnerArr.push(New)
         }
     }
 }
-
-

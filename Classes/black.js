@@ -1,4 +1,7 @@
 let script1 = require("./script1")
+white = require("./white");
+black = require("./black");
+blackspawner = require("./blackspawner");
 module.exports = class black extends script1 {
     constructor(x, y, id,n,multiply) {
         super(x,y,id)
@@ -21,7 +24,9 @@ module.exports = class black extends script1 {
            
         ];
     }
-
+    max1(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
     chooseCell(character) {
         var found = [];
         for (var i in this.directions) {
@@ -66,7 +71,10 @@ module.exports = class black extends script1 {
         }else if(this.multiply ==0){
             if (this.white){    
                 var l = this.Cell(3);
-                var l1 = max1(0,l.length); 
+                var l1 = this.max1(0,l.length);
+            
+                
+
                 var New = new white(l[l1][0],l[l1][1] ,4,30);
                 whiteArr.push(New);
             }

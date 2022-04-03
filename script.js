@@ -35,12 +35,53 @@ function f0() {
     socket.emit("f0")
 }
 function f1() {
-    socket.emit("f1")
+
+    var input = document.getElementById("1")
+    var val = input.value
+    var input1 = document.getElementById("11")
+    var val1 = input1.value
+    
+    socket.emit("f1",val,val1)
 }
 function f2() {
-    socket.emit("f2")
+    var input = document.getElementById("2")
+    var val = input.value
+    var input1 = document.getElementById("22")
+    var val1 = input1.value
+    
+    socket.emit("f2",val,val1)
+    
 }
 
+function f3() {
+    var input = document.getElementById("3")
+    var val = input.value
+    var input1 = document.getElementById("33")
+    var val1 = input1.value
+    var input2 = document.getElementById("333")
+    var val2 = input2.value
+    var input3 = document.getElementById("333")
+    var val3 = input3.value
+    
+    socket.emit("f3",val,val1,val2,val3)
+}
 
+function f4() {
+    var input = document.getElementById("4")
+    var val = input.value
+    var input1 = document.getElementById("44")
+    var val1 = input1.value
+    
+    socket.emit("f4",val,val1)
+}
+
+function f5() {
+    var input = document.getElementById("5")
+    var val = input.value
+    var input1 = document.getElementById("55")
+    var val1 = input1.value
+    
+    socket.emit("f5",val,val1)
+}
 
 

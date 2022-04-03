@@ -4,14 +4,23 @@ module.exports =  class white extends script1{
         super(x,y,id)
         this.multyply= 0
         this.energy = energy;
-        
+        this.timer=0
         this.end = 7;
-        
+        this.directions = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
     }
     
 
     chooseCell(character) {
-        this.getNewCoordinates();
+        this.directions
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -70,8 +79,12 @@ module.exports =  class white extends script1{
         
     }
      mull() {
-        timer++
-        
+        this.timer++
+        if(this.timer<40){
+    	
+            
+       			
+            
         var emptyCells = this.chooseCell(3);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
           
@@ -85,9 +98,13 @@ module.exports =  class white extends script1{
 
             matrix[newY][newX] = this.id;
         }
-
+    }else{
+        this.die(0)
+        this.timer=0
+        	
 
     }
+}
 
     die(n) {
        
